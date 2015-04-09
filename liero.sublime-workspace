@@ -1,0 +1,503 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Bin",
+				"  BinEq (enum member) ExprId.BinEq = 24"
+			],
+			[
+				"loc",
+				"locCount"
+			],
+			[
+				"create",
+				" ○ createDocumentFragment (method) Document.createDocumentFragment(): DocumentFragment"
+			],
+			[
+				"Ite",
+				"Iterator"
+			],
+			[
+				"Iterat",
+				"IteratorResult"
+			],
+			[
+				"proto",
+				"protocolIterator"
+			],
+			[
+				"getEl",
+				" ○ getElementById (method) Document.getElementById(elementId: string): HTMLElement"
+			],
+			[
+				"remo",
+				" ○ removeChild (method) Node.removeChild(oldChild: Node): Node"
+			],
+			[
+				"queue",
+				"queuedActions"
+			],
+			[
+				"dro",
+				"dropWhile"
+			],
+			[
+				"tran",
+				"transduce"
+			],
+			[
+				"arg",
+				"arguments"
+			],
+			[
+				"Re",
+				"RequireError"
+			],
+			[
+				"Take",
+				"takeWhile"
+			],
+			[
+				"Require",
+				"RequireContext"
+			],
+			[
+				"Requi",
+				"RequireContext"
+			],
+			[
+				"requ",
+				"requestLoad"
+			],
+			[
+				"resolve",
+				"resolvedDeps"
+			],
+			[
+				"modul",
+				"moduleNameInContext"
+			],
+			[
+				"res",
+				"resolvedDeps"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/main.rs",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 348.0,
+		"selected_items":
+		[
+			[
+				"pretti",
+				"HTMLPrettify"
+			],
+			[
+				"pretit",
+				"HTMLPrettify"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"pret",
+				"HTMLPrettify"
+			],
+			[
+				"prettify",
+				"HTMLPrettify"
+			],
+			[
+				"prettif",
+				"HTMLPrettify"
+			],
+			[
+				"pretty",
+				"HTMLPrettify"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"arcti",
+				"ArcticTypescript: Build"
+			],
+			[
+				"glue",
+				"Glue - Launch"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"reopen",
+				"ArcticTypescript: Reopen Project (after config changes)"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 503.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"glue clear",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/glip/ts/amd/src/amd.min.js",
+		"/home/glip/ts/amd/src/treepack.ts",
+		"/home/glip/ts/amd/src/packer.min.js",
+		"/home/glip/ts/amd/build/packer.js",
+		"/home/glip/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/glip/ts/amd/src/transducers.ts",
+		"/home/glip/.config/sublime-text-3/Packages/ArcticTypescript/bin/node_modules/typescript/bin/lib.d.ts",
+		"/home/glip/ts/amd/src/tsconfig.json",
+		"/home/glip/ts/amd/test/tsconfig.json",
+		"/home/glip/ts/amd/karma.conf.js",
+		"/home/glip/ts/amd/.gitignore",
+		"/home/glip/ts/amd/tsconfig.json",
+		"/home/glip/ts/amd/src/transducers.d.ts",
+		"/home/glip/ts/amd/src/transducers.min.js",
+		"/home/glip/ts/amd/src/protocol.min.js",
+		"/home/glip/ts/amd/build/transducers.js",
+		"/home/glip/ts/amd/build.sh",
+		"/home/glip/ts/amd/src/route.ts",
+		"/home/glip/ts/amd/src/test.ts",
+		"/home/glip/ts/amd/test/test.ts",
+		"/home/glip/ts/amd/src/test.html",
+		"/home/glip/ts/amd/test.js",
+		"/home/glip/ts/amd/src/classtest.js",
+		"/home/glip/ts/amd/src/amd.js",
+		"/home/glip/ts/amd/src/transducers.min2.js",
+		"/home/glip/ts/amd/src/transducers.js",
+		"/home/glip/ts/amd/src/route.js",
+		"/home/glip/ts/amd/src/route.min.js",
+		"/home/glip/ts/amd/src/amd.ts",
+		"/home/glip/ts/amd/src/test.js",
+		"/home/glip/ts/amd/src/packer.ts",
+		"/home/glip/Documents/sammy.js",
+		"/home/glip/ts/amd/bundle.js",
+		"/home/glip/ts/amd/test.html",
+		"/home/glip/ts/amd/test/transducers.ts",
+		"/home/glip/ts/amd/amd.js",
+		"/home/glip/ts/amd/test.ts",
+		"/home/glip/ts/amd/amd.ts",
+		"/home/glip/ts/amd/x.js",
+		"/home/glip/ts/amd/x.ts"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"fold"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"resolve",
+			"waitSec",
+			".b =",
+			"inherit",
+			"getPath",
+			"resolve",
+			"global",
+			"null",
+			"err",
+			"s:",
+			".s",
+			"e",
+			"s",
+			".s",
+			"callback",
+			"d:",
+			".d",
+			"d:",
+			"v",
+			"v:",
+			".v",
+			"document.",
+			"new ",
+			"new",
+			"==",
+			"!=",
+			"out.",
+			"endconn",
+			"sortChanges",
+			".join",
+			"ElementTraversal",
+			"flushDe",
+			"new Td",
+			"function Td",
+			"new",
+			"Object.create",
+			"console.lo",
+			".apply",
+			"feed",
+			"log(",
+			"log",
+			".b",
+			"feed",
+			"iterator",
+			"then",
+			"mapcat",
+			"compose",
+			"getReducer",
+			".c",
+			"then",
+			"new",
+			".b",
+			"toJoin",
+			"assert",
+			"delay",
+			"process",
+			"reducep",
+			".b",
+			".b(",
+			".then",
+			"sig(",
+			".then",
+			".v",
+			"resolve",
+			"then",
+			"resolve",
+			"this",
+			"defaultReducer",
+			".d",
+			"defaultReducer",
+			"sig",
+			"signal",
+			"httpTransport",
+			"Route",
+			".n",
+			"isUndef",
+			"SIMULATE_RANDOM_ERRORS_IN_SIGNAL",
+			"console.log",
+			"this.r",
+			"reducer.a",
+			"console.log",
+			"arrayBind",
+			"match",
+			"getReducer",
+			"checkModuleDone",
+			"s:",
+			"runRo",
+			"DefaultLocationProxy",
+			"getLocation",
+			"reduce",
+			"runRoute",
+			"lookupRoute",
+			"lookup",
+			"PATH_REPLACER",
+			"routes",
+			"done",
+			"console.l",
+			"route:",
+			"_routeWrapper",
+			".get",
+			"defaultReducer",
+			"internalReduce",
+			"console.log",
+			"console",
+			".c",
+			"resolve",
+			"timeout",
+			"reduce",
+			"internalReduce",
+			"ResultRef",
+			"id",
+			"reduced",
+			"isReduced",
+			"s:",
+			".s",
+			"flushDefines",
+			"clearT",
+			"resolve",
+			"c:",
+			"isUndef",
+			"void 0",
+			".a",
+			"a:",
+			".b(",
+			".a(",
+			"new Re",
+			"modules",
+			"local"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"unspool",
+			"inherit",
+			"sig",
+			"a:"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/main.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 298.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "liero.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 190.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

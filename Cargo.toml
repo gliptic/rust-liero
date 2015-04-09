@@ -1,0 +1,10 @@
+[package]
+name = "liero"
+version = "0.0.1"
+authors = ["Erik Lindroos <gliptic@gmail.com>"]
+
+[dependencies.lierosim]
+path = "lierosim"
+
+[dependencies]
+sdl2 = "0.1.0"

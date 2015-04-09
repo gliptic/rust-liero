@@ -1,0 +1,4 @@
+[package]
+name = "lierosim"
+version = "0.0.1"
+authors = ["Erik Lindroos <gliptic@gmail.com>"]
