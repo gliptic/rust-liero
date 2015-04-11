@@ -1,7 +1,7 @@
 use std::ops::Add;
 use std::num::Wrapping;
 
-#[derive(PartialEq, Eq, Debug)]
+#[derive(PartialOrd, Ord, PartialEq, Eq, Debug)]
 pub struct Fixed(Wrapping<i32>);
 
 impl Fixed {
@@ -40,7 +40,7 @@ impl<T> Add for Vec2<T> where T: Add<Output = T> {
 pub type FixedVec = Vec2<Fixed>;
 
 #[cfg(test)]
-mod test {
+mod tests {
     use super::{Fixed, Vec2};
 
     #[test]
