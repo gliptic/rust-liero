@@ -22,7 +22,7 @@ fn main() {
     let renderer = Renderer::from_window(window, RenderDriverIndex::Auto, sdl2::render::ACCELERATED | sdl2::render::PRESENTVSYNC).unwrap();
     let mut tex = renderer.create_texture_streaming(PixelFormatEnum::RGB24, (512, 512)).unwrap();
 
-    
+
 
     let mut drawer = renderer.drawer();
    
@@ -53,6 +53,7 @@ fn main() {
                 }
             }
         }).unwrap();
+
 
         //drawer.set_draw_color(Color::RGB(40, 40, 40));
         //drawer.fill_rect(Rect::new(5, 5, 630, 470));

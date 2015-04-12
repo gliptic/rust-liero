@@ -8,6 +8,10 @@ pub struct List<T: Copy> {
     lim: *mut T,
 }
 
+pub trait ItemAdder<T: Copy> {
+    fn add(&mut self, item: T);
+}
+
 impl<T: Copy> List<T> {
     pub fn new(max_count: u32) -> List<T> {
         unsafe {
@@ -32,6 +36,23 @@ impl<T: Copy> List<T> {
     }
 }
 
+impl<T: Copy> ItemAdder<T> for List<T> {
+    fn add(&mut self, item: T) {
+        if self.end != self.lim {
+            unsafe {
+                *self.end = item;
+                self.end = self.end.offset(1);
+            }
+        }
+    }
+}
+
+impl<T: Copy> Drop for List<T> {
+    fn drop(&mut self) {
+        unsafe { heap::deallocate(mem::transmute(self.beg), (self.lim as usize) - (self.beg as usize), mem::min_align_of::<T>()); }
+    }
+}
+
 pub struct ListIterator<'a, T: 'a + Copy> {
     list: &'a mut List<T>,
     cur: *mut T,
@@ -49,47 +70,67 @@ impl<'a, T> Iterator for SubIterator<'a, T> {
     type Item = &'a mut T;
 
     fn next(&mut self) -> Option<&'a mut T> {
-        if self.cur != self.end {
+        let mut p = self.cur;
+
+        if p == self.exclude {
+            unsafe { p = p.offset(1) }
+        }
+
+        if p == self.end {
             None
         } else {
-            let mut p = self.cur;
-
             unsafe {
-                if p == self.exclude {
-                    p = p.offset(1);
-                }
                 self.cur = p.offset(1);
-                Some(mem::transmute(p))
+                Some(&mut *p)
             }
         }
     }
 }
 
 pub struct ListItemRef<'a, T: 'a + Copy> {
-    p: &'a mut T,
+    cur: &'a mut *mut T,
     list: &'a mut List<T>
+}
+
+impl<'a, T: 'a + Copy> ItemAdder<T> for ListItemRef<'a, T> {
+    fn add(&mut self, item: T) {
+        self.list.add(item)
+    }
+}
+
+impl<'a, T: 'a + Copy> ItemAdder<T> for ListIterator<'a, T> {
+    fn add(&mut self, item: T) {
+        self.list.add(item)
+    }
 }
 
 impl<'a, T: 'a + Copy> ListItemRef<'a, T> {
     pub fn value(&mut self) -> &mut T {
-        self.p
+        unsafe { &mut **self.cur }
     }
 
     pub fn remove(self) {
         // Swap with last
         unsafe {
-            *self.p = *self.list.end;
             self.list.end = self.list.end.offset(-1);
+            **self.cur = *self.list.end;
+            mem::forget(self);
         }
     }
 
     pub fn others_iter<'b>(&'b mut self) -> SubIterator<'b, T> {
         SubIterator {
-            exclude: self.p as *mut T,
+            exclude: *self.cur as *mut T,
             cur: self.list.beg,
             end: self.list.end,
             phantom: PhantomData
         }
+    }
+}
+
+impl<'a, T: 'a + Copy> Drop for ListItemRef<'a, T> {
+    fn drop(&mut self) {
+        unsafe { *self.cur = self.cur.offset(1); }
     }
 }
 
@@ -104,15 +145,10 @@ impl<'a, T: 'a + Copy> InteractIterator for ListIterator<'a, T> {
 
     fn next<'b>(&'b mut self) -> Option<ListItemRef<'b, T>> {
         if self.cur != self.list.end {
-            let p = self.cur;
-
-            unsafe {
-                self.cur = p.offset(1);
-                Some(ListItemRef {
-                    p: &mut *(p as *mut T),
-                    list: self.list
-                })
-            }
+            Some(ListItemRef {
+                cur: &mut self.cur,
+                list: self.list
+            })
         } else {
             None
         }

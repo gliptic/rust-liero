@@ -1,7 +1,7 @@
 use std::ops::Add;
 use std::num::Wrapping;
 
-#[derive(PartialOrd, Ord, PartialEq, Eq, Debug)]
+#[derive(PartialOrd, Ord, PartialEq, Eq, Debug, Copy, Clone)]
 pub struct Fixed(Wrapping<i32>);
 
 impl Fixed {
@@ -24,11 +24,11 @@ impl Add for Fixed {
     }
 }
 
-#[derive(PartialEq, Eq, Debug)]
-pub struct Vec2<T: Add>(pub T, pub T);
+#[derive(PartialEq, Eq, Debug, Copy, Clone)]
+pub struct Vec2<T: Add + Copy>(pub T, pub T);
 
 
-impl<T> Add for Vec2<T> where T: Add<Output = T> {
+impl<T> Add for Vec2<T> where T: Add<Output = T> + Copy {
     type Output = Vec2<T>;
 
     fn add(self, Vec2(x2, y2): Vec2<T>) -> Vec2<T> {
