@@ -1,11 +1,26 @@
-use fixed::{Fixed, FixedVec};
+use fixed::{F64Vec, Vec2};
+use list::BroadphaseNode;
 
 #[derive(Copy, Clone)]
 pub struct Worm {
-	pub pos: FixedVec,
-	pub vel: FixedVec,
-	pub aiming_angle: Fixed,
-	pub aiming_vel: Fixed,
+	pub pos: F64Vec,
+	pub vel: F64Vec,
+	pub aiming_angle: f64,
+	pub aiming_vel: f64,
+}
+
+impl BroadphaseNode for Worm {
+	fn set_cell(&mut self, index: u32) {
+        // TODO
+    }
+
+    fn get_cell(&mut self) -> u32 {
+        0
+    }
+
+    fn pos(&self) -> Vec2<i32> {
+        self.pos.as_i32()
+    }
 }
 
 /*

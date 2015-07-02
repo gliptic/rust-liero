@@ -2,6 +2,7 @@
 name = "liero"
 version = "0.0.1"
 dependencies = [
+ "gentest 0.0.1",
  "lierosim 0.0.1",
  "sdl2 0.1.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
@@ -10,6 +11,10 @@ dependencies = [
 name = "bitflags"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
+
+[[package]]
+name = "gentest"
+version = "0.0.1"
 
 [[package]]
 name = "libc"

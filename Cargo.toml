@@ -2,9 +2,14 @@
 name = "liero"
 version = "0.0.1"
 authors = ["Erik Lindroos <gliptic@gmail.com>"]
+build = "build.rs"
 
 [dependencies.lierosim]
 path = "lierosim"
 
 [dependencies]
 sdl2 = "0.1.0"
+#capnp = "0.2.0"
+
+[dependencies.gentest]
+path = "gentest"

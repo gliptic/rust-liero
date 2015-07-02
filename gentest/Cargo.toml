@@ -1,0 +1,8 @@
+[package]
+name = "gentest"
+version = "0.0.1"
+authors = ["gliptic <gliptic@gmail.com>"]
+
+[lib]
+name = "gentest"
+crate-type = ["dylib"]

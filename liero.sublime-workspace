@@ -4,6 +4,94 @@
 		"selected_items":
 		[
 			[
+				"re",
+				"reduce_frac"
+			],
+			[
+				"nobje",
+				"nobject_types"
+			],
+			[
+				"nobj",
+				"nobject_types"
+			],
+			[
+				"NOb",
+				"NObjectType"
+			],
+			[
+				"update",
+				"update_broadphase"
+			],
+			[
+				"Item",
+				"ItemAdder"
+			],
+			[
+				"GRID_S",
+				"GRID_SIZE"
+			],
+			[
+				"CELL",
+				"CELL_SHIFT"
+			],
+			[
+				"Cell",
+				"Cellphase"
+			],
+			[
+				"with",
+				"with_capacity"
+			],
+			[
+				"NObj",
+				"NObject"
+			],
+			[
+				"grid",
+				"grid_shift"
+			],
+			[
+				"gri",
+				"grid_shift"
+			],
+			[
+				"spli",
+				"splinter_count"
+			],
+			[
+				"spl",
+				"splinter_count"
+			],
+			[
+				"NObjec",
+				"NObjectType"
+			],
+			[
+				"NO",
+				"NObjectType"
+			],
+			[
+				"Fixed",
+				"FixedVec"
+			],
+			[
+				"explo",
+				"explode_obj"
+			],
+			[
+				"do",
+				"do_remove"
+			],
+			[
+				"num",
+				"num_frames"
+			],
+			[
+				"sim",
+				"sim_minus_x"
+			],
+			[
 				"ListI",
 				"ListItemRef"
 			],
@@ -103,15 +191,7 @@
 			"file": "src/main.rs",
 			"settings":
 			{
-				"buffer_size": 1929,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Cargo.toml",
-			"settings":
-			{
-				"buffer_size": 164,
+				"buffer_size": 1967,
 				"line_ending": "Unix"
 			}
 		},
@@ -119,7 +199,7 @@
 			"file": "lierosim/src/lib.rs",
 			"settings":
 			{
-				"buffer_size": 55,
+				"buffer_size": 217,
 				"line_ending": "Unix"
 			}
 		},
@@ -127,31 +207,97 @@
 			"file": "lierosim/src/nobject.rs",
 			"settings":
 			{
-				"buffer_size": 668,
+				"buffer_size": 7067,
 				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lierosim/src/level.rs",
+			"settings":
+			{
+				"buffer_size": 1228,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "lierosim/src/list.rs",
 			"settings":
 			{
-				"buffer_size": 1797,
+				"buffer_size": 11186,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": ".gitignore",
+			"file": "lierosim/src/worm.rs",
 			"settings":
 			{
-				"buffer_size": 6,
-				"line_ending": "Unix"
+				"buffer_size": 1540,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "lierosim/src/fixed.rs",
 			"settings":
 			{
-				"buffer_size": 1181,
+				"buffer_size": 2729,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lierosim/src/sim.rs",
+			"settings":
+			{
+				"buffer_size": 3961,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 92 files for \"time_to_live_v\"\n\nD:\\rs\\liero\\lierosim\\src\\common.rs:\n  123                  splinter_count: 0,\n  124                  time_to_live: 0,\n  125:                 time_to_live_v: 0\n  126              }; 40 + 25],\n  127  			sincos: [Vec2(Zero::zero(), Zero::zero()); 128],\n\nD:\\rs\\liero\\lierosim\\src\\nobject.rs:\n   11      pub splinter_type: u32,\n   12      pub time_to_live: u32,\n   13:     pub time_to_live_v: u32,\n   14  }\n   15  \n\nD:\\rs\\liero\\lierosim\\src\\sim.rs:\n   74              pos: pos,\n   75              vel: vel,\n   76:             time_to_die: self.current_time + ty.time_to_live - self.rand.next_max(ty.time_to_live_v),\n   77              cur_frame: 0,\n   78              index: self.cur_object_index,\n\nD:\\rs\\liero\\lierosim\\target\\debug\\liblierosim-459c6d8906cfa8bd.rlib:\n    <binary>\n\n9 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 843,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "lierosim/src/common.rs",
+			"settings":
+			{
+				"buffer_size": 2729,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lierosim/src/weapon.rs",
+			"settings":
+			{
+				"buffer_size": 2884,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "lierosim/src/rand.rs",
+			"settings":
+			{
+				"buffer_size": 959,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Cargo.toml",
+			"settings":
+			{
+				"buffer_size": 241,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Cargo.lock",
+			"settings":
+			{
+				"buffer_size": 2313,
 				"line_ending": "Unix"
 			}
 		}
@@ -159,16 +305,20 @@
 	"build_system": "Packages/Rust/Cargo.sublime-build",
 	"command_palette":
 	{
-		"height": 127.0,
+		"height": 113.0,
 		"selected_items":
 		[
 			[
-				"upd",
-				"Package Control: Upgrade Package"
+				"menu",
+				"View: Toggle Menu"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"upd",
+				"Package Control: Upgrade Package"
 			],
 			[
 				"pretti",
@@ -219,7 +369,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -241,10 +391,27 @@
 	},
 	"expanded_folders":
 	[
-		"/D/rs/liero"
+		"/D/rs/liero",
+		"/D/rs/liero/gentest",
+		"/D/rs/liero/gentest/src",
+		"/D/rs/liero/lierosim",
+		"/D/rs/liero/lierosim/src",
+		"/D/rs/liero/schema",
+		"/D/rs/liero/src"
 	],
 	"file_history":
 	[
+		"/D/rs/liero/lierosim/src/xorshift.rs",
+		"/C/Users/glip/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/glip/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/rs/liero/build.rs",
+		"/D/rs/liero/Cargo.toml",
+		"/D/rs/liero/gentest/Cargo.toml",
+		"/D/rs/liero/schema/test.capnp",
+		"/D/rs/liero/gentest/src/lib.rs",
+		"/D/rs/liero/test.capnp",
+		"/D/rs/liero/liero.sublime-project",
+		"/D/rs/liero/.gitignore",
 		"/home/glip/rust/liero/src/main.rs",
 		"/home/glip/ts/amd/src/amd.min.js",
 		"/home/glip/ts/amd/src/treepack.ts",
@@ -289,13 +456,14 @@
 	],
 	"find":
 	{
-		"height": 25.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"",
 			"fold"
 		]
 	},
@@ -304,6 +472,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Fixed",
+			"FixedV",
+			"time_to_live_v",
+			"current_time",
+			".len",
 			"resolve",
 			"waitSec",
 			".b =",
@@ -426,12 +599,7 @@
 			"isUndef",
 			"void 0",
 			".a",
-			"a:",
-			".b(",
-			".a(",
-			"new Re",
-			"modules",
-			"local"
+			"a:"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -453,7 +621,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -462,15 +630,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1929,
+						"buffer_size": 1967,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								518,
-								518
+								1704,
+								1704
 							]
 						],
 						"settings":
@@ -480,55 +648,345 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 432.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "Cargo.toml",
+					"file": "lierosim/src/lib.rs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 164,
+						"buffer_size": 217,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								133,
-								133
+								216,
+								212
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Rust/Rust.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lierosim/src/nobject.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5490,
+								5495
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3077.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lierosim/src/level.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								775,
+								775
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "lierosim/src/list.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11186,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4535,
+								4535
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 3772.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "lierosim/src/lib.rs",
+					"buffer": 5,
+					"file": "lierosim/src/worm.rs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 55,
+						"buffer_size": 1540,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								20,
-								20
+								383,
+								383
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "lierosim/src/fixed.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2011,
+								2011
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1296.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "lierosim/src/sim.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3961,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1680,
+								1680
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 997.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 843,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										182,
+										196
+									],
+									[
+										413,
+										427
+									],
+									[
+										635,
+										649
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								190,
+								190
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "lierosim/src/common.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2457,
+								2457
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1782.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "lierosim/src/weapon.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								477,
+								477
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rust/Rust.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "lierosim/src/rand.rs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 959,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								369,
+								381
 							]
 						],
 						"settings":
@@ -543,80 +1001,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "lierosim/src/nobject.rs",
+					"buffer": 12,
+					"file": "Cargo.toml",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 668,
+						"buffer_size": 241,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								197,
-								197
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rust/Rust.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "lierosim/src/list.rs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1797,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								236,
-								236
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rust/Rust.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
+								241,
+								241
 							]
 						],
 						"settings":
@@ -627,37 +1025,35 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "lierosim/src/fixed.rs",
+					"buffer": 13,
+					"file": "Cargo.lock",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1181,
+						"buffer_size": 2313,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								988,
-								988
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Rust/Rust.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 990.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -665,7 +1061,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 25.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -696,7 +1092,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 298.0
+		"height": 374.0
 	},
 	"output.find_results":
 	{
@@ -705,7 +1101,7 @@
 	"project": "liero.sublime-project",
 	"replace":
 	{
-		"height": 46.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -740,7 +1136,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 190.0,
+	"side_bar_width": 251.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

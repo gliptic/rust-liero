@@ -1,80 +1,88 @@
-use fixed::{Fixed, Vec2, FixedVec};
-use list::ListItemRef;
+use fixed::{Vec2, F64Vec};
+use list::{ListItemRef, Bruteforce, BroadphaseNode};
+use level::{Level, Mat};
 use sim::SimMinusObjects;
 use std::num::Zero;
 
+#[derive(Copy, Clone)]
 pub struct NObjectType {
-    pub gravity: Fixed
+    pub gravity: f64,
+    pub splinter_count: u32,
+    pub splinter_type: u32,
+    pub time_to_live: u32,
+    pub time_to_live_v: u32,
 }
 
 #[derive(Copy, Clone)]
-pub struct NObject<'a> {
-    pub ty: &'a NObjectType,
-    pub pos: FixedVec,
-    pub vel: FixedVec,
+pub struct NObject {
+    //pub ty: &'a NObjectType,
+    pub pos: F64Vec,
+    pub vel: F64Vec,
 
     // (Mostly) static values
+    pub ty_idx: u32,
     pub time_to_die: u32,
     pub cur_frame: i32,
-    pub index: u32
+    pub index: u32,
+    pub cell_index: u32
 }
 
-// Level mock
-struct Level;
-struct Mat;
-impl Level {
-    fn mat(&self, _: Vec2<i32>) -> Mat {
-        Mat
-    }
-}
-impl Mat {
-    fn dirt_rock(&self) -> bool {
-        true
-    }
+#[derive(Eq, PartialEq)]
+enum ObjState {
+    Alive,
+    Removed,
+    Exploded
 }
 
-impl<'s> NObject<'s> {
-    fn explode_obj(obj: &ListItemRef<NObject>, pos: FixedVec, vel: FixedVec, state: &mut SimMinusObjects) {
+impl NObject {
+    fn explode_obj(
+        ty: &NObjectType,
+        pos: F64Vec,
+        vel: F64Vec,
+        state: &mut SimMinusObjects) {
 
         // TODO: Schedule sobjects
         // TODO: Play sound
-        // TODO: Create splinters
+        for _ in 0..ty.splinter_count {
+            // TODO: Create splinters
+            state.new_nobject(0, pos, vel); // Testing
+        }
         // TODO: Create dirt effect
-        state.new_nobject(pos, vel); // Testing
     }
 
-    pub fn update<'a>(mut obj: ListItemRef<'a, NObject>, state: &mut SimMinusObjects) {
-        let (mut do_explode, mut do_remove) = (false, false);
+    pub fn update(mut obj: ListItemRef<NObject, Bruteforce>, state: &mut SimMinusObjects) {
+        let mut obj_state = ObjState::Alive;
         let mut iteration = 0;
+        let (mut pos, mut vel);
+        let ty;
+
+        {
+            let o = obj.value();
+            ty = state.get_nobject_type(o.ty_idx);
+            pos = o.pos;
+            vel = o.vel;
+        }
 
         let max_iteration = 1; // param
 
-        loop {
+        'repeat: while iteration < max_iteration {
             iteration = iteration + 1;
 
-            let (pos, mut vel);
-
-            {
-                let o = obj.value();
-                pos = o.pos;
-                vel = o.vel;
-                o.pos = pos + vel;
-            }
+            pos = pos + vel;
 
             let inewpos = (pos + vel).as_i32();
             let ipos = pos.as_i32();
 
             let mut bounced = false;
 
-            let level = Level;
+            let level = Level::new();
             let current_time = 0; // This is called cycles in original
 
             // This should be set to Fixed::from_frac(w.bounce, 100)
-            let bounce = Fixed::new(1);
+            let bounce = 1.0;
             let expl_ground = false;
             // This should be set to Fixed::new(1) if this is a wobject and w.bounce == 100, otherwise Fixed::from_frac(4, 5)
-            let friction = Fixed::new(1);
-            let gravity = Fixed::new(1);
+            let friction = 1.0;
             let num_frames = 0;
             let directional_animation = true; // This is called loopAnim in original
 
@@ -109,11 +117,12 @@ impl<'s> NObject<'s> {
             let animate;
 
             if level.mat(inewpos).dirt_rock() {
-                if bounce == Fixed::new(0) {
+                if bounce == 0.0 {
                     vel = Zero::zero();
                     if expl_ground {
                         // TODO: Draw on map for nobject
-                        do_explode = true;
+                        obj_state = ObjState::Exploded;
+                        break 'repeat;
                     }
                 }
                 animate = false; // TODO: Nobjects are animated in this case too
@@ -121,7 +130,7 @@ impl<'s> NObject<'s> {
                 if !bounced {
                     // TODO: Sobject trail for nobject
                 }
-                vel.1 = vel.1 + gravity;
+                vel.1 = vel.1 + ty.gravity;
                 animate = true;
             }
 
@@ -146,61 +155,71 @@ impl<'s> NObject<'s> {
                 }
 
                 if current_time > o.time_to_die {
-                    do_explode = true;
+                    obj_state = ObjState::Exploded;
+                    break 'repeat;
                 }
             }
 
             // TODO: Coldet with worms
 
-            if do_explode {
-                NObject::explode_obj(&obj, pos, vel, state);
-                break;
-            } else if do_remove {
-                break;
-            }
-
-            {
-                // Update velocity
-                obj.value().vel = vel;
-            }
-
-            if iteration >= max_iteration {
-                break;
-            }
         }
 
-        if do_explode || do_remove {
+        if obj_state == ObjState::Alive {
+            {
+                // Update pos/vel
+                let o = obj.value();
+                o.pos = pos;
+                o.vel = vel;
+            }
+            obj.update_broadphase();
+        } else {
+            if obj_state == ObjState::Exploded {
+                NObject::explode_obj(ty, pos, vel, state);
+            }
             obj.remove();
         }
+    }
+}
+
+impl BroadphaseNode for NObject {
+    fn set_cell(&mut self, index: u32) {
+        self.cell_index = index;
+    }
+
+    fn get_cell(&mut self) -> u32 {
+        self.cell_index
+    }
+
+    fn pos(&self) -> Vec2<i32> {
+        self.pos.as_i32()
     }
 }
 
 #[cfg(test)]
 mod tests {
     use super::{NObject, NObjectType};
-    use fixed::{Fixed, Vec2};
-    use list;
-    use list::{InteractIterator, ItemAdder};
+    use fixed::{Vec2};
+    //use list::{InteractIterator, ItemAdder};
 
     #[test]
     fn create_nobject() {
-        let t = NObjectType { gravity: Fixed::new(0) };
-
         let o = NObject {
-            ty: &t,
-            pos: Vec2(Fixed::new(0), Fixed::new(0)),
-            vel: Vec2(Fixed::new(1), Fixed::new(1)),
+            ty_idx: 0,
+            pos: Vec2(0.0, 0.0),
+            vel: Vec2(1.0, 1.0),
             time_to_die: 0,
             cur_frame: 0,
-            index: 0
+            index: 0,
+            cell_index: 0
         };
 
-        assert_eq!(o.pos.0, Fixed::new(0));
-        assert_eq!(o.vel.0, Fixed::new(1));
+        assert_eq!(o.pos.0, 0.0);
+        assert_eq!(o.vel.0, 1.0);
         assert_eq!(o.time_to_die, 0);
         assert_eq!(o.cur_frame, 0);
     }
 
+/*
     #[test]
     fn nobject_list() {
         let mut list: list::List<u32> = list::List::new(100);
@@ -252,5 +271,5 @@ mod tests {
 
             assert_eq!(count, 1);
         }
-    }
+    }*/
 }

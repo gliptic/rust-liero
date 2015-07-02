@@ -1,3 +1,6 @@
+#![feature(plugin)]
+#![plugin(gentest)]
+
 extern crate sdl2;
 extern crate lierosim;
 

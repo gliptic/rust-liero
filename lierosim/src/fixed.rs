@@ -9,9 +9,18 @@ impl Fixed {
         Fixed(Wrapping(v << 16))
     }
 
+    pub fn from_raw(v: i32) -> Fixed {
+        Fixed(Wrapping(v))
+    }
+
     pub fn as_i32(self) -> i32 {
         let Fixed(Wrapping(v)) = self;
         v >> 16
+    }
+
+    pub fn as_raw(self) -> i32 {
+        let Fixed(Wrapping(v)) = self;
+        v
     }
 }
 
@@ -76,6 +85,15 @@ impl<T> Add for Vec2<T> where T: Add<Output = T> + Copy {
     }
 }
 
+impl<T> Mul<T> for Vec2<T> where T: Mul<Output = T> + Copy {
+    type Output = Vec2<T>;
+
+    fn mul(self, s: T) -> Vec2<T> {
+        let Vec2(x, y) = self;
+        Vec2(x * s, y * s)
+    }
+}
+
 impl Vec2<Fixed> {
     pub fn as_i32(self) -> Vec2<i32> {
         let Vec2(x, y) = self;
@@ -83,7 +101,15 @@ impl Vec2<Fixed> {
     }
 }
 
+impl Vec2<f64> {
+    pub fn as_i32(self) -> Vec2<i32> {
+        let Vec2(x, y) = self;
+        Vec2(x.floor() as i32, y.floor() as i32)
+    }
+}
+
 pub type FixedVec = Vec2<Fixed>;
+pub type F64Vec = Vec2<f64>;
 
 #[cfg(test)]
 mod tests {
